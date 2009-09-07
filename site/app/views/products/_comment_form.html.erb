@@ -1,0 +1,7 @@
+<div class="comment_form">
+<h4/>Оставить отзыв</h4>
+<% form_for :comment, :url=>comment_product_path(@product) do |f| %>
+	<%=f.text_area :comment, :rows=>20, :cols=>5 %><br/>
+	<%=submit_tag "Комментировать"%>
+<% end %>
+</div>

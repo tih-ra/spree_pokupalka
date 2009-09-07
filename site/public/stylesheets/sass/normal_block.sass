@@ -1,0 +1,61 @@
+div
+  &.normal_block
+    :width 180px
+    :padding-top 5px
+    :float left
+
+    >
+      .normal_block_top
+        :width 180px
+        :height 22px
+        :text-align center
+        :background url(/images/pokupka/normal_block_top.png) no-repeat center top
+        :padding-top 2px
+
+      .normal_block_middle
+        :width 180px
+        :background url(/images/pokupka/taxonomies_container_middle.gif) repeat-y
+        :float left
+
+        > .normal_block_bottom
+          :width 180px
+          :height 7px
+          :float left
+          :background url(/images/pokupka/taxonomies_container_bottom.gif) no-repeat
+
+      .normal_block_top > span.name
+        :color #fff
+        :font-size 14px
+        :font-family "Arial"
+        :font-weight bold
+        :padding 2px 0 0 7px
+
+      .normal_block_middle > div.normal_block_content
+        :padding 5px 0 0 0px
+        :width 180px
+        :color #666666
+        :font-size 12px
+        :float left
+
+        p
+          :padding 0 0 0 5px
+          :margin 7px 0 7px 0
+
+        hr
+          :color #cccccc
+          :size 1px
+          :width 100%
+          :margin 0 0 0 0
+          :padding 0 0 0 0
+
+        a
+          :color #11a209
+          :text-decoration underline
+          :size 11px
+          :font-weight bold
+
+  &.product_description_middle a
+    :color #11a209
+    :text-decoration underline
+    :size 11px
+    :font-weight bold

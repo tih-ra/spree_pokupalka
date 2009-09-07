@@ -1,0 +1,47 @@
+<div><%=image_tag "pokupka/banner.png"%></div>
+<br/>
+<% @short_news = NewsItem.all(:order=>"created_at DESC", :limit=>4)%>
+<%render :layout => "shared/normal_block", :locals=>{:title=>"Информация", :icon=>"lamp"} do %>
+	<% @short_news.each do |sn|%>
+	<!--BLOCK-->
+	<p>
+	<b><%=sn.title%></b><br/>
+	<%=truncate(sn.body, :length=>200)%>
+	<br/>
+	<%=link_to "подробнее...", ""%>
+	</p>
+	<hr/>
+	<% end %>
+<%end if @short_news%>
+
+<%render :layout => "shared/normal_block", :locals=>{:title=>"Голосование", :icon=>"vote"} do %>
+	<!--BLOCK-->
+	<p>
+		<b>С 25 феврала по 12 апреля?</b>
+		<% form_tag users_path do %>
+		  <p>
+		  <input type="radio" value="1" name="vote"> John<br/>
+		  <input type="radio" value="1" name="vote"> Roj<br/>
+		  <input type="radio" value="1" name="vote"> Rozzitta<br/>
+		</p>
+		<%=content_tag "center", image_submit_tag("pokupka/vote_button.png")%>
+		<% end -%>
+	</p>
+<%end%>
+
+<%render :layout => "shared/normal_block", :locals=>{:title=>"Корзина", :icon=>"cart"} do %>
+	<!--BLOCK-->
+	<p>
+		<%=content_tag "div", image_tag("pokupka/tmp_01.png"), :style=>"width:60px;float:left;padding-left:5px;"%>
+		<%content_tag "div", :style=>"width:100px;float:left;padding-left:10px" do %>
+			<%=link_to "KOLBASKI 001<br/>45 грн", "", :style=>"text-decoration: none;"%>
+		<% end %>
+	</p>
+	<p style="clear:both;padding-top:10px;">
+		<%=content_tag "span", "Товаров:", :class=>"black_small"%>
+		<%=link_to "3", "#", :class=>"mini"%>
+		<br/>
+		<%=content_tag "span", "цена:", :class=>"black_small"%>
+		<%=link_to "3 грн.", "#", :class=>"mini"%>
+	</p>
+<%end%>

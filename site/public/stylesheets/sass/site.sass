@@ -1,0 +1,142 @@
+!content_width = 600px
+!left_sidebar_width = 185px
+!taxonomies_width = 180px
+!taxonomies_root_width = 167px
+#header
+  :height 160px
+body
+  :background #efefef url(/images/pokupka/bg.jpg) no-repeat center top
+.container
+  :width 970px
+ul.product-listing
+  :margin 0
+  li, li:hover
+    :padding 0px
+    :margin 0px
+    :-moz-border-radius 0px
+    :-webkit-border-radius 0px
+    :width 198px
+    :color #666666
+    :font-weight bold
+    :background #fff
+    a.info
+      :width 198px
+      :background url(/images/pokupka/price_pl.jpg) no-repeat center center
+      :position relative
+      :padding 0
+      span
+        :margin 10px 45px 0 0
+        :color #666666
+        :font-weight bold
+body.two-col
+  #content
+    :width = !content_width
+  #wrapper
+    :background none
+    :padding 0
+#right-sidebar
+  :width 180px
+  :display inline
+  :float left
+  \> div
+    :padding-left 5px
+#sidebar
+  :padding 0
+  :margin 0
+  :width = !left_sidebar_width
+#products
+  :background #fff url(/images/pokupka/pl_top.jpg) no-repeat center top
+  :-moz-border-radius 7px
+  :-webkit-border-radius 7px
+  :padding 34px 0 0 0
+  :float left
+  :width = !content_width
+  \> span
+    :position absolute
+    :font-weight bold
+    :color #fff
+    :margin-top -26px
+    :width = !content_width
+    :text-align center
+
+#taxonomies
+  :width = !taxonomies_width
+  \> .taxonomies_container_top
+    :width = !taxonomies_width
+    :height 22px
+    :background url(/images/pokupka/taxonomies_container_top.png) no-repeat center top
+    \> .taxonomies_name
+      :color #fff
+      :font-size 14px
+      :font-family "Arial"
+      :font-weight bold
+      :padding 4px 0 0 7px
+  \> .taxonomies_container_middle
+    :width = !taxonomies_width
+    :background url(/images/pokupka/taxonomies_container_middle.gif) repeat-y
+    \> .taxonomies_container_bottom
+      :width = !left_sidebar_width
+      :height 7px
+      :background url(/images/pokupka/taxonomies_container_bottom.gif) no-repeat
+
+div.taxonomies_root
+  :width = !taxonomies_root_width
+  :padding-top 10px
+  :padding-left 6px
+  .root
+    :color #000
+    :font-size 11px
+    :font-family "Arial"
+    :font-weight bold
+    :text-decoration none
+    :padding 4px 0 0 7px
+  \> div.taxonomies_top
+    :width = !taxonomies_root_width
+    :height 27px
+    :background url(/images/pokupka/navlist_top.gif) no-repeat
+  \> div.taxonomies_middle
+    :width = !taxonomies_root_width
+    :background url(/images/pokupka/navlist_middle.gif) repeat-y
+    \> div.taxonomies_bottom
+      :width = !taxonomies_root_width
+      :height 7px
+      :background url(/images/pokupka/navlist_bottom.gif) no-repeat
+    ul.navigation-list 
+      li
+        :color #000
+        :font-size 11px
+        :font-family "Arial"
+        :list-style-image url(/images/pokupka/li_arrow.gif)
+        \> a
+          :color #000
+          :font-size 11px
+          :font-family "Arial"
+          :text-decoration none
+          :background none
+        \> a:hover
+          :color #000
+          :font-size 11px
+          :font-family "Arial"
+          :text-decoration underline
+          :background none
+@import normal_block.sass
+p.block_login
+  :font-size 11px
+  :text-align right
+  :margin-right 12px
+  \> a, \> a:hover
+    :float left
+    :color #000 !important
+    :margin-left 5px
+  input
+    :margin-right 10px
+  input[type='text'], input[type='password']
+    :width 100px
+@import product.sass
+textarea
+  :width 300px
+  :height 50px
+div.comment_form
+  :padding 10px
+  :float left
+@import rating.sass    

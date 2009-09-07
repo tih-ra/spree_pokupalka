@@ -1,0 +1,12 @@
+<% content_tag "div", :class=>"normal_block" do %>
+	<% content_tag "div", :class=>"normal_block_top" do %>
+		<%=image_tag "pokupka/header_icons/#{icon}.png"%>
+		<%=content_tag "span", "#{title}", :class=>"name"%>
+	<% end %>
+	<% content_tag "div", :class=>"normal_block_middle" do %>
+		<% content_tag "div", :class=>"normal_block_content" do %>
+			<%=yield%>
+		<% end %>
+		<%=content_tag "div", "<!-- FOR IE -->", :class=>"normal_block_bottom"%>
+	<% end %>
+<% end %>

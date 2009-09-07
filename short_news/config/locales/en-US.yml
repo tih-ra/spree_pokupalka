@@ -1,0 +1,11 @@
+en-US:
+  short_news: "Short News"
+  new_short_news: "New short news"
+  new_news_places: "New news places"
+  place: "Place"
+  title: "Title"
+  content: "Content"
+  published_start_at: "Published at"
+  published_end_at: "End published at"
+  identifier: "Identifier"
+  no_end: "No end"

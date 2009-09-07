@@ -1,0 +1,71 @@
+.star-rating
+  :list-style none
+  :margin 0 25px 10px 21px
+  :padding 0px
+  :width 100px
+  :height 20px
+  :position relative
+  :background url(/images/star1.png) top left repeat-x
+
+  li
+    :padding 0px
+    :margin 0px
+    :float left
+
+    a
+      :display block
+      :width 20px
+      :height 20px
+      :text-decoration none
+      :text-indent -9000px
+      :z-index 20
+      :position absolute
+      :padding 0px
+      :float left
+
+      &:hover
+        :background url(/images/star2.png) left center
+        :border 0px
+        :z-index 2
+        :left 0px
+
+  a
+    &.one-star
+      :left 0px
+
+      &:hover
+        :width 20px
+
+    &.two-stars
+      :left 20px
+
+      &:hover
+        :width 40px
+
+    &.three-stars
+      :left 40px
+
+      &:hover
+        :width 60px
+
+    &.four-stars
+      :left 60px
+
+      &:hover
+        :width 80px
+
+    &.five-stars
+      :left 80px
+
+      &:hover
+        :width 100px
+
+  li.current-rating
+    :background url(/images/star3.png) left bottom
+    :position absolute
+    :height 20px
+    :width 60px
+    :display block
+    :text-indent -9000px
+    :z-index 1
+    :float left

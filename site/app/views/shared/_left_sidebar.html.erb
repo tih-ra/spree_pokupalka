@@ -1,0 +1,62 @@
+<%render :layout => "shared/normal_block", :locals=>{:title=>"Товар дня", :icon=>"clock"} do %>
+	<!--BLOCK-->
+		<%=image_tag "pokupka/tmp_02.png", :style=>"padding-left:2px"%>
+	<p>
+		Основой нового логотипа Kazmobil Trans вложен ранее существующий 
+		символ компании изображение "земного шара".<br/>
+		
+	</p>
+	<% content_tag "div", :class=> "price_pl" do %>
+		<%=content_tag "span", "123 грн", :class=>"under_price"%>
+		<%= link_to "<br/><span class='price selling'>123 грн</span>", "#", :class => 'info', :style=>"text-decoration:none;" %>
+	<% end %>
+	<br/>
+	<hr/>
+	<!--BLOCK-->
+		<%=image_tag "pokupka/tmp_02.png", :style=>"padding-left:2px"%>
+	<p>
+		Основой нового логотипа Kazmobil Trans вложен ранее существующий 
+		символ компании изображение "земного шара".<br/>
+		
+	</p>
+	<% content_tag "div", :class=> "price_pl" do %>
+		<%=content_tag "span", "123 грн", :class=>"under_price"%>
+		<%= link_to "<br/><span class='price selling'>123 грн</span>", "#", :class => 'info', :style=>"text-decoration:none;" %>
+	<% end %>
+	<br/>
+	<hr/>
+	<!--BLOCK-->
+		<%=image_tag "pokupka/tmp_02.png", :style=>"padding-left:2px"%>
+	<p>
+		Основой нового логотипа Kazmobil Trans вложен ранее существующий 
+		символ компании изображение "земного шара".<br/>
+		
+	</p>
+	<% content_tag "div", :class=> "price_pl" do %>
+		<%=content_tag "span", "123 грн", :class=>"under_price"%>
+		<%= link_to "<br/><span class='price selling'>123 грн</span>", "#", :class => 'info', :style=>"text-decoration:none;" %>
+	<% end %>
+	<br/>
+<%end if @test%>
+
+<%render :layout => "shared/normal_block", :locals=>{:title=>"Вход на сайт", :icon=>"login"} do %>
+	<% form_tag user_session_path do  %>
+	<p class="block_login">
+		Логин: <%=text_field :user_session, :login, :class=>"login"%>
+		Пароль: <%=password_field :user_session, :password, :class=>"login"%>
+		<%= link_to "Регистрация", signup_path %>
+		<%= link_to "Забыл пароль?", "/password_resets/new"%>
+		<%= image_submit_tag("pokupka/login_button.png") %>
+	</p>
+	<% end %>
+<%end unless current_user%>
+
+<%render :layout => "shared/normal_block", :locals=>{:title=>"Мой Акаунт", :icon=>"account"} do %>
+	<p>
+		Здравствуйте, <strong><%=current_user.login%></strong><br/>
+		<span class="black_small">Ваши заказы</span><br/>
+		<%=link_to("Корзина", link_to_cart, :class=>"mini_black", :style=>"color:#000;")%><br/>
+		<%=link_to("Выход", logout_path, :class=>"mini_black", :style=>"color:#000;")%>
+	</p>
+	
+<%end if current_user%>

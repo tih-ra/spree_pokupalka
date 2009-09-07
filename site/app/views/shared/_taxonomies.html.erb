@@ -1,0 +1,24 @@
+<div id="taxonomies" class="sidebar-item">
+	<% content_tag "div", :class=>"taxonomies_container_top" do %>
+		<%=content_tag "span", "Каталог товаров", :class=>"taxonomies_name"%>
+	<% end %>
+	<% content_tag "div", :class=>"taxonomies_container_middle" do %>
+	
+		<% @taxonomies.each do |taxonomy| %>
+			<% content_tag "div", :class=>"taxonomies_root" do %>
+				<% content_tag "div", :class=>"taxonomies_top" do %>
+					<%= content_tag "span", link_to(taxonomy.name.singularize, seo_url(taxonomy.root), :class => 'root')%>
+				<% end %>
+				<% content_tag "div", :class=>"taxonomies_middle" do %>
+  					<ul class="navigation-list">
+	  					<% taxonomy.root.children.each do |taxon| %>
+	    				<li<%= ' class="current"' if @taxon and ([@taxon] + @taxon.ancestors).include?(taxon) %>><%= link_to taxon.name, seo_url(taxon) %></li>
+	  					<% end %>
+					</ul>
+					<%=content_tag "div", "<!-- FOR IE -->", :class=>"taxonomies_bottom"%>
+				<% end %>
+			<% end %>
+		<% end %>
+	<%=content_tag "div", "<!-- FOR IE -->", :class=>"taxonomies_container_bottom"%>
+	<% end %>
+</div>

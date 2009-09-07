@@ -1,0 +1,76 @@
+<script>
+	function productDetails(clickN){
+		var img = document.getElementById('product_details_image');
+		clickN=='1' ? img.src='/images/pokupka/product_description_top.gif' : img.src='/images/pokupka/product_description_click.gif';
+		
+	}
+</script>
+<div id="products">
+	<span><%=@product.name%></span>
+	<% @body_id = 'product-details' %>
+
+	<%=content_tag "div", render('image'), :id=>"product-images"%>
+	<%=content_tag "div", image_tag("pokupka/product_test.gif"), :class=>"product_tools"%>
+	<%content_tag "div", :class=>"product_tools" do%>
+		<%= rating_tag current_user, @product %>
+	<%end%>
+	<% content_tag "div", "f2", :class=>"product_tools" do%>
+		<% content_tag "div", :class=> "price_pl" do %>
+			<%=content_tag "span", "123 грн", :class=>"under_price"%>
+			<%= link_to "<br/><span class='price selling'>123 грн</span>", "#", :class => 'info', :style=>"text-decoration:none;" %>
+		<% end %>
+	<%end%>
+	
+	<!--PRODUCT DESCRIPTION-->
+	<div class="product_description_container">
+		<div class="product_description_top"><%=image_tag "pokupka/product_description_top.gif", :id=>"product_details_image", :usemap=>"#product_description_click"%></div>
+		<div class="product_description_middle">
+			<p><%=@product.description%></p>
+			<div class="product_description_bottom"><!--IE--></div>
+		</div>
+	</div>
+	<!--//PRODUCT DESCRIPTION-->
+	<div style="padding:10px;clear:both;"><!--IE--></div>
+	<!--PRODUCT DESCRIPTION-->
+	<div class="product_description_container">
+		<div class="product_description_green"><span class="product_description_name">Сопутствющие товары</div>
+		<div class="product_description_middle">
+			
+			  <% Product.all(:limit=>3).each do |product| %>
+			    <% content_tag "div", :style=>"float:left;width:33%;text-align:center;" do%>
+					<%=content_tag "span", product.name, :class=>"product_name" %>
+					<%= content_tag "div", link_to(small_image(product), product), :class=>"product_image" %>
+					<% content_tag "div", :class=> "price_pl" do %>
+						<%=content_tag "span", product_price(product), :class=>"under_price"%>
+						<%= link_to "<span class='price selling'>#{product_price(product)}</span>", product, :class => 'info' %>
+					<% end %>
+				<% end %>
+
+			    <% end %>
+			
+			
+			<div class="product_description_bottom"><!--IE--></div>
+		</div>
+	</div>
+	<!--//PRODUCT DESCRIPTION-->
+	<div style="padding:10px;clear:both;"><!--IE--></div>
+	<!--PRODUCT DESCRIPTION-->
+	<div class="product_description_container">
+		<div class="product_description_gray"><span class="product_description_name">Отзывы о <%=h @product.name%></div>
+		<div class="product_description_middle">
+		 <%=render :partial => "comment", :collection => @product.comments%>
+		 <%=render :partial => "comment_form", :object => @product%>
+			<div class="product_description_bottom"><!--IE--></div>
+		</div>
+	</div>
+	<!--//PRODUCT DESCRIPTION-->
+	  <%#= product_description(@product) %>
+
+	  <%#= render 'properties' %>
+	  <%#= render 'cart_form' %>
+
+</div>
+<map name="product_description_click">
+<area shape="rect" coords="118,5,194,22" href="javascript:productDetails(1);">
+<area shape="rect" coords="4,5,111,20" href="javascript:productDetails(2);">
+</map>
